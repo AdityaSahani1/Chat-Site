@@ -1,68 +1,79 @@
-const socket = io();
+const socket=io();
 
-// Get the username from the URL parameters
-const urlParams = new URLSearchParams(window.location.search);
-var username = urlParams.get("username") || "Guest";
+var username;
 
-// Ensure username is set and prevent changes
-if (!username || username === "Guest") {
-    alert("Username is missing. Please log in again.");
-    window.location.href = "https://your-infinityfree-site.com/login.php"; // Redirect to login
-}
+var chats=document.querySelector(".chats");
+var users_list=document.querySelector(".users-list");
+var users_count=document.querySelector(".users-count");
+var msg_send=document.querySelector("#user-send");
+var user_msg=document.querySelector("#user-msg");
 
-// Notify the server that a new user has joined
-socket.emit("new-user-joined", username);
+do{
+    username=prompt("Enter your name: ");
+}while(!username);
 
-// Handling messages from the server
-socket.on("user-joined", (name) => {
-    let joinMessage = document.createElement("div");
-    joinMessage.classList.add("user-join");
-    joinMessage.innerText = `${name} joined the chat`;
-    document.querySelector(".chats").appendChild(joinMessage);
+/* It will be called when user will join */
+socket.emit("new-user-joined",username);
+
+/* Notifying that user is joined */
+socket.on('user-connected',(socket_name)=>{
+    userJoinLeft(socket_name,'joined');
 });
 
-// Send message on button click
-document.querySelector("button").addEventListener("click", () => {
-    let messageInput = document.querySelector("input");
-    let message = messageInput.value.trim();
-    
-    if (message !== "") {
-        let messageData = { user: username, message: message };
-        socket.emit("send", messageData);
-        appendMessage(messageData, "outgoing");
-        messageInput.value = "";
+/* function to create join/left status div */
+function userJoinLeft(name,status){
+    let div=document.createElement("div");
+    div.classList.add('user-join');
+    let content=`<p><b>${name}</b> ${status} the chat</p>`;
+    div.innerHTML=content;
+    chats.appendChild(div);
+    chats.scrollTop=chats.scrollHeight;
+}
+
+/* Notifying that user has left */
+socket.on('user-disconnected',(user)=>{
+    userJoinLeft(user,'Left');
+});
+
+/* For updating user list and user counts */
+socket.on('user-list',(users)=>{
+  users_list.innerHTML="";
+  users_arr=Object.values(users);
+  for(i=0;i<users_arr.length;i++){
+    let p=document.createElement('p');
+    p.innerText=users_arr[i];
+    users_list.appendChild(p);
+  }
+  users_count.innerHTML=users_arr.length;
+});
+
+
+/* for sending message */
+
+msg_send.addEventListener('click',()=>{
+    let  data={
+        user: username,
+        msg: user_msg.value
+    };
+    if(user_msg.value!=''){
+        appendMessage(data,'outgoing');
+        socket.emit('message',data);
+        user_msg.value='';
     }
 });
 
-// Append message to chat window
-function appendMessage(data, type) {
-    let chatWindow = document.querySelector(".chats");
-    let messageDiv = document.createElement("div");
-    messageDiv.classList.add("message", type);
-    
-    let nameTag = document.createElement("p");
-    nameTag.style.fontWeight = "bold";
-    nameTag.innerText = data.user;
-    
-    let messageTag = document.createElement("p");
-    messageTag.innerText = data.message;
-    
-    messageDiv.appendChild(nameTag);
-    messageDiv.appendChild(messageTag);
-    chatWindow.appendChild(messageDiv);
-    
-    chatWindow.scrollTop = chatWindow.scrollHeight;
+function appendMessage(data,status){
+    let div=document.createElement('div');
+    div.classList.add('message',status);
+    let content=`
+       <h5>${data.user}</h5>
+       <p>${data.msg}</p>
+    `;
+    div.innerHTML=content;
+    chats.appendChild(div);
+    chats.scrollTop=chats.scrollHeight;
 }
 
-// Receiving messages from other users
-socket.on("receive", (data) => {
-    appendMessage(data, "incoming");
-});
-
-// Handle user disconnection
-socket.on("user-left", (name) => {
-    let leaveMessage = document.createElement("div");
-    leaveMessage.classList.add("user-join");
-    leaveMessage.innerText = `${name} left the chat`;
-    document.querySelector(".chats").appendChild(leaveMessage);
-});
+socket.on('message',(data)=>{
+    appendMessage(data,'incoming');
+})
