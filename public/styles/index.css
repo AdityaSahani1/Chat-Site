@@ -4,6 +4,7 @@
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
 }
+
 * ::-webkit-scrollbar {
   display: none;
 }
@@ -17,6 +18,7 @@ main {
   overflow: hidden;
   border-radius: 10px;
 }
+
 main header {
   background-color: #2791cf;
   color: #ffffff;
@@ -26,23 +28,27 @@ main header {
   align-items: center;
   justify-content: space-between;
 }
+
 main header div.title {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: flex-start;
 }
+
 main header div.title h1 {
   font-family: "Baloo 2", cursive;
   font-size: 32px;
   margin-left: 10px;
 }
+
 main header button {
   background-color: transparent;
   border: none;
   outline: none;
   display: none;
 }
+
 main div.container {
   background-color: #7e878c;
   padding: 20px;
@@ -51,6 +57,7 @@ main div.container {
   align-items: stretch;
   justify-content: flex-start;
 }
+
 main div.container div.users-window {
   width: 350px;
   color: #ffffff;
@@ -59,6 +66,7 @@ main div.container div.users-window {
   border-radius: 10px;
   margin-right: 20px;
 }
+
 main div.container div.users-window div.users-head {
   display: flex;
   flex-direction: row;
@@ -66,27 +74,32 @@ main div.container div.users-window div.users-head {
   justify-content: space-between;
   margin-bottom: 15px;
 }
+
 main div.container div.users-window div.users-head h4 {
   background-color: #7e878c;
   padding: 0 8px;
   border-radius: 50px;
 }
+
 main div.container div.users-window div.users-list p {
   font-size: 0.9rem;
   letter-spacing: 0.5px;
   font-weight: 600;
   margin-bottom: 15px;
 }
+
 main div.container div.chat-window {
   width: 100%;
   border-radius: 10px;
   background-color: #3f3f3f;
 }
+
 main div.container div.chat-window div.chats {
   height: 65vh;
   padding: 20px;
   overflow-y: auto;
 }
+
 main div.container div.chat-window div.chats div.user-join {
   font-size: 0.9rem;
   color: #3f3f3f;
@@ -98,6 +111,7 @@ main div.container div.chat-window div.chats div.user-join {
   margin: 0 auto;
   margin-bottom: 15px;
 }
+
 main div.container div.chat-window div.chats div.message {
   color: #3f3f3f;
   background-color: #ffffff;
@@ -106,9 +120,11 @@ main div.container div.chat-window div.chats div.message {
   margin-bottom: 15px;
   border-radius: 10px 50px 50px 10px;
 }
+
 main div.container div.chat-window div.chats div.message p {
   font-size: 16px;
 }
+
 main div.container div.chat-window div.chats div.outgoing {
   margin-left: auto;
   color: #ffffff;
@@ -116,6 +132,7 @@ main div.container div.chat-window div.chats div.outgoing {
   border-radius: 50px 10px 10px 50px;
   text-align: right;
 }
+
 main div.container div.chat-window div.user-input {
   display: flex;
   flex-direction: row;
@@ -123,6 +140,7 @@ main div.container div.chat-window div.user-input {
   justify-content: space-between;
   padding: 20px;
 }
+
 main div.container div.chat-window div.user-input input {
   font-size: 16px;
   background-color: #ffffff;
@@ -132,6 +150,7 @@ main div.container div.chat-window div.user-input input {
   width: 100%;
   border-radius: 50px 0 0 50px;
 }
+
 main div.container div.chat-window div.user-input button {
   font-size: 16px;
   font-weight: 600;
@@ -148,12 +167,15 @@ main div.container div.chat-window div.user-input button {
   main {
     width: 95%;
   }
+
   main header button {
     display: block;
   }
+
   main div.container {
     position: relative;
   }
+
   main div.container div.users-window {
     position: absolute;
     top: 0;
@@ -167,6 +189,7 @@ main div.container div.chat-window div.user-input button {
     padding-bottom: 0;
     display: none;
   }
+
   main div.container div.chat-window div.chats div.message {
     max-width: 300px;
   }
@@ -179,9 +202,9 @@ footer {
   padding: 15px;
   text-align: center;
   width: 100%;
-  position: relative;
-  Bottom: 0px;
-  margin-top: 25px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
 }
 
 .footer-container {
@@ -189,12 +212,8 @@ footer {
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  align-items: center; /* Centers everything */
+  align-items: center; /* Centers all content */
   text-align: center;
-}
-
-.footer-info {
-  margin-bottom: 10px; /* Adds space between text and icons */
 }
 
 .footer-info p {
@@ -203,22 +222,16 @@ footer {
 
 .footer-socials {
   display: flex;
-  gap: 15px; /* Adds equal spacing between icons */
+  gap: 15px;
   justify-content: center; /* Centers icons */
   align-items: center;
-}
-
-.footer-socials a {
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 .footer-socials img {
   width: 30px;
   height: 30px;
   border-radius: 50%;
-  object-fit: cover; /* Ensures proper image cropping */
+  object-fit: cover;
   transition: transform 0.2s ease-in-out;
 }
 
