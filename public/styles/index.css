@@ -170,4 +170,14 @@ main div.container div.chat-window div.user-input button {
   main div.container div.chat-window div.chats div.message {
     max-width: 300px;
   }
-}/*# sourceMappingURL=index.css.map */
+}
+
+/* Footer */
+footer {background-color: #333; color: #fff; padding: 20px; text-align: center; }
+.footer-container { max-width: 800px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+.footer-info { margin-right: 20px; }
+.footer-info p { margin-bottom: 10px; }
+.footer-socials { display: flex; justify-content: space-between; align-items: center; }
+.footer-socials a { margin: 0 10px; }
+.footer-socials img { width: 25px; height: 25px; border-radius: 50%; transition: transform 0.2s ease-in-out; }
+.footer-socials img:hover { transform: scale(1.1); } 
