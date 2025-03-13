@@ -13,18 +13,21 @@
 body {
   display: flex;
   flex-direction: column;
-  min-height: 100vh; /* Full viewport height */
+  min-height: 100vh; /* Full height */
 }
 
-/* Main content should expand to push the footer down */
+/* Main container expands to fill space */
 main {
-  flex: 1; /* Takes all available space, keeping footer at the bottom */
+  flex: 1;
+  display: flex;
+  flex-direction: column;
   width: 80%;
   margin: auto;
   overflow: hidden;
   border-radius: 10px;
 }
 
+/* Header */
 main header {
   background-color: #2791cf;
   color: #ffffff;
@@ -55,13 +58,16 @@ main header button {
   display: none;
 }
 
+/* Main Content */
 main div.container {
   background-color: #7e878c;
   padding: 20px;
   display: flex;
+  flex: 1; /* Makes sure it fills the space */
   flex-direction: row;
   align-items: stretch;
   justify-content: flex-start;
+  min-height: 0; /* Fixes shrinking issue */
 }
 
 main div.container div.users-window {
@@ -74,16 +80,16 @@ main div.container div.users-window {
 }
 
 main div.container div.chat-window {
-  width: 100%;
-  border-radius: 10px;
-  background-color: #3f3f3f;
+  flex: 1; /* Takes remaining space */
   display: flex;
   flex-direction: column;
+  border-radius: 10px;
+  background-color: #3f3f3f;
 }
 
 main div.container div.chat-window div.chats {
   flex: 1;
-  height: 65vh;
+  height: 100%;
   padding: 20px;
   overflow-y: auto;
 }
