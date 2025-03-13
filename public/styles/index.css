@@ -179,6 +179,8 @@ footer {
   padding: 15px;
   text-align: center;
   width: 100%;
+  position: relative;
+  Bottom: 0px;
   margin-top: 25px;
 }
 
