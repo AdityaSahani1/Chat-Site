@@ -177,13 +177,13 @@ footer {
   max-width: 800px;
   margin: 0 auto;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
+  flex-direction: column; /* Stacks elements vertically */
+  align-items: center; /* Centers everything */
+  text-align: center;
 }
 
 .footer-info {
-  margin-right: 20px;
+  margin-bottom: 10px; /* Adds space between text and icons */
 }
 
 .footer-info p {
@@ -192,22 +192,22 @@ footer {
 
 .footer-socials {
   display: flex;
-  gap: 10px; /* Adds equal spacing between icons */
-  align-items: center; /* Ensures images align with text */
+  gap: 15px; /* Adds equal spacing between icons */
+  justify-content: center; /* Centers icons */
+  align-items: center;
 }
 
 .footer-socials a {
   display: flex;
-  align-items: center; /* Centers icons properly */
+  align-items: center;
   justify-content: center;
-  width: 35px;
-  height: 35px;
 }
 
 .footer-socials img {
-  width: 30px; /* Slightly increased for better visibility */
+  width: 30px;
   height: 30px;
   border-radius: 50%;
+  object-fit: cover; /* Ensures proper image cropping */
   transition: transform 0.2s ease-in-out;
 }
 
