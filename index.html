@@ -14,57 +14,55 @@
     <link rel="stylesheet" href="styles/index.css" />
   </head>
   <body>
-    <main>
-      <header>
-        <div class="title">
-          <img src="icons/logo.jpeg" width="35px" alt="logo" style="border-radius:50%;"/>
-          <h1>OG Talk</h1>  
-        </div>
-        <button type="button" onclick="show_hide()">
-          <img src="icons/hamburger.png" width="35px" alt="menu" />
-        </button>
-      </header>
-      <div class="container">
-        <div class="users-window">
-          <div class="users-head">
-            <h3>People</h3>
-            <h4 class="users-count">0</h4>
+    <div class="wrapper">
+      <main>
+        <header>
+          <div class="title">
+            <img src="icons/logo.jpeg" width="35px" alt="logo" />
+            <h1>OG Talk</h1>  
           </div>
-          <div class="users-list"></div>
-        </div>
-        <div class="chat-window">
-          <div class="chats"></div>
-          <div class="user-input">
-            <input
-              id="user-msg"
-              type="text"
-              placeholder="Type your message..."
-            />
-            <button type="button" id="user-send">SEND</button>
+          <button type="button" onclick="show_hide()">
+            <img src="icons/hamburger.png" width="35px" alt="menu" />
+          </button>
+        </header>
+
+        <div class="container">
+          <div class="users-window">
+            <div class="users-head">
+              <h3>People</h3>
+              <h4 class="users-count">0</h4>
+            </div>
+            <div class="users-list"></div>
           </div>
+          <div class="chat-window">
+            <div class="chats"></div>
+            <div class="user-input">
+              <input
+                id="user-msg"
+                type="text"
+                placeholder="Type your message..."
+              />
+              <button type="button" id="user-send">SEND</button>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <!-- Footer at the Bottom -->
+    <footer>
+      <div class="footer-container">
+        <div class="footer-info">
+          <p>© 2025 OG Talk. All Rights Reserved.</p>
+        </div>
+        <div class="footer-socials">
+          <img src="icons/facebook.png" alt="Facebook" />
+          <img src="icons/twitter.png" alt="Twitter" />
+          <img src="icons/instagram.png" alt="Instagram" />
         </div>
       </div>
-    </main>
-    <footer>
-<div class="footer-container">
-<div class="footer-info">
-<p>&copy; 2023 OG Talk</p>
-<p>Developed by Aditya Sahani</p>
-<p>Pursuing BSC IT (2023-2026) at Suryadatta College of Management Information Research & Technology</p>
-</div>
-<div class="footer-socials">
-<a href="#" target="_blank">
-<img src="icons/github.png" width="25px" alt="github" />
-</a>
-<a href="#" target="_blank">
-<img src="icons/linkedin.png" width="25px" alt="linkedin" />
-</a>
-<a href="" target="_blank">
-<img src="icons/twitter.png" width="25px" alt="twitter" />
-</a>
-</div>
-</div>
-  </footer>
+    </footer>
+
     <script>
       var uwindow = document.querySelector(".users-window");
       function show_hide() {
