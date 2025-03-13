@@ -167,7 +167,7 @@ main div.container div.chat-window div.user-input button {
 footer {
   background-color: #333;
   color: #fff;
-  padding: 15px; /* Reduced padding to prevent excess space */
+  padding: 15px;
   text-align: center;
   width: 100%;
   margin-top: auto;
@@ -187,22 +187,26 @@ footer {
 }
 
 .footer-info p {
-  margin-bottom: 5px; /* Reduced spacing between text lines */
+  margin-bottom: 5px;
 }
 
 .footer-socials {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  gap: 10px; /* Adds equal spacing between icons */
+  align-items: center; /* Ensures images align with text */
 }
 
 .footer-socials a {
-  margin: 0 8px; /* Adjusted spacing */
+  display: flex;
+  align-items: center; /* Centers icons properly */
+  justify-content: center;
+  width: 35px;
+  height: 35px;
 }
 
 .footer-socials img {
-  width: 25px;
-  height: 25px;
+  width: 30px; /* Slightly increased for better visibility */
+  height: 30px;
   border-radius: 50%;
   transition: transform 0.2s ease-in-out;
 }
