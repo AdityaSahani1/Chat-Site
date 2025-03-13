@@ -9,14 +9,14 @@
   display: none;
 }
 
-/* Make body take full viewport height */
+/* Body fills full viewport */
 body {
   display: flex;
   flex-direction: column;
-  min-height: 100vh; /* Full height */
+  min-height: 100vh;
 }
 
-/* Main container expands to fill space */
+/* Main container */
 main {
   flex: 1;
   display: flex;
@@ -42,7 +42,6 @@ main header div.title {
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: flex-start;
 }
 
 main header div.title h1 {
@@ -58,16 +57,15 @@ main header button {
   display: none;
 }
 
-/* Main Content */
+/* Chat and User List Section */
 main div.container {
   background-color: #7e878c;
   padding: 20px;
   display: flex;
-  flex: 1; /* Makes sure it fills the space */
-  flex-direction: row;
+  flex: 1;
   align-items: stretch;
   justify-content: flex-start;
-  min-height: 0; /* Fixes shrinking issue */
+  min-height: 0;
 }
 
 main div.container div.users-window {
@@ -79,21 +77,68 @@ main div.container div.users-window {
   margin-right: 20px;
 }
 
+main div.container div.users-window div.users-head {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+main div.container div.users-window div.users-list p {
+  font-size: 0.9rem;
+  letter-spacing: 0.5px;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+/* Chat Window */
 main div.container div.chat-window {
-  flex: 1; /* Takes remaining space */
+  flex: 1;
   display: flex;
   flex-direction: column;
   border-radius: 10px;
   background-color: #3f3f3f;
 }
 
+/* Chat Messages */
 main div.container div.chat-window div.chats {
   flex: 1;
-  height: 100%;
   padding: 20px;
   overflow-y: auto;
 }
 
+/* Message Styling */
+main div.container div.chat-window div.chats div.message {
+  color: #3f3f3f;
+  background-color: #ffffff;
+  padding: 8px 15px;
+  max-width: 400px;
+  margin-bottom: 10px;
+  border-radius: 10px 50px 50px 10px;
+}
+
+main div.container div.chat-window div.chats div.outgoing {
+  margin-left: auto;
+  color: #ffffff;
+  background-color: #2791cf;
+  border-radius: 50px 10px 10px 50px;
+  text-align: right;
+}
+
+/* User Join Notification */
+main div.container div.chat-window div.chats div.user-join {
+  font-size: 0.9rem;
+  color: #3f3f3f;
+  background-color: #ffffff;
+  border-radius: 50px;
+  width: max-content;
+  padding: 7px 20px;
+  margin: 0 auto;
+  margin-bottom: 15px;
+}
+
+/* Input Field */
 main div.container div.chat-window div.user-input {
   display: flex;
   align-items: center;
@@ -155,6 +200,7 @@ footer {
   margin-top: auto;
 }
 
+/* Footer Layout */
 .footer-container {
   max-width: 800px;
   margin: 0 auto;
@@ -164,10 +210,12 @@ footer {
   text-align: center;
 }
 
+/* Footer Info */
 .footer-info p {
   margin-bottom: 5px;
 }
 
+/* Footer Socials */
 .footer-socials {
   display: flex;
   gap: 15px;
